@@ -7,14 +7,15 @@ theme = 'PaperMod'
 unsafe = true
 
 [params]
-defaultTheme = 'auto'
-ShowShareButtons = true
-ShowReadingTime = true
+defaultTheme = 'dark'
+ShowShareButtons = false
+ShowReadingTime = false
 ShowCodeCopyButtons = true
 ShowFullTextinRSS = true
 ShowBreadCrumbs = true
 ShowPostNavLinks = true
 enableRobotsTXT = true
+disableThemeToggle = true
 
 [params.homeInfoParams]
 Title = 'Fred Thomsen'
