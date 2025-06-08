@@ -1,0 +1,10 @@
+services:
+  site:
+    image: hugomods/hugo:ci
+    ports:
+      - "1313:1313"
+    volumes:
+      - ../src:/src
+    command: server --bind=0.0.0.0 --baseURL=http://localhost --source=/src --disableFastRender
+    environment:
+      - HUGO_ENABLEMISSINGCONTENTPLACEHOLDERS=true

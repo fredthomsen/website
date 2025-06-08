@@ -1,0 +1,55 @@
+baseURL = 'https://fredthomsen.net/'
+languageCode = 'en-us'
+title = 'Fred Thomsen'
+theme = 'PaperMod'
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[params]
+defaultTheme = 'auto'
+ShowShareButtons = true
+ShowReadingTime = true
+ShowCodeCopyButtons = true
+ShowFullTextinRSS = true
+ShowBreadCrumbs = true
+ShowPostNavLinks = true
+enableRobotsTXT = true
+
+[params.homeInfoParams]
+Title = 'Fred Thomsen'
+Content = 'Developer/Grappler/Metalhead/Swede/All-Around Nerd'
+
+[[params.socialIcons]]
+name = 'linkedin'
+url = 'https://www.linkedin.com/in/fredthomsen'
+[[params.socialIcons]]
+name = 'github'
+url = 'https://github.com/fredthomsen'
+
+[params.profileMode]
+enabled = true
+title = 'Fred Thomsen'
+imageUrl = 'https://fredthomsen-website-content.s3.amazonaws.com/images/swedenstare.png'
+imageWidth = 250
+imageHeight = 250
+imageTitle = 'Fred Thomsen'
+
+[[params.profileMode.buttons]]
+name = 'Experience'
+url = '/experience'
+[[params.profileMode.buttons]]
+name = 'Skills'
+url = '/skills'
+
+[menu]
+[[menu.main]]
+identifier = 'experience'
+name = 'Experience'
+url = '/experience/'
+weight = 10
+[[menu.main]]
+identifier = 'skills'
+name = 'Skills'
+url = '/skills/'
+weight = 20
