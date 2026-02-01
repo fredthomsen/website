@@ -35,7 +35,9 @@ layout: "single"
         <li>Worked on functionality to egress data and add data analytics via services processing data running in EKS</li>
         <li>Ensured AI prediction algorithms had easy and rapid access to appropriate metrics data in Clickhouse</li>
         <li>Automated deployment environment leveraging Terraform and Ansible</li>
-        <li>Led working group to improve developer experience</li>
+      </ul>
+      <p>Led working group to improve developer experience:</p>
+      <ul>
         <li>Set gilded path for Python project structure and tooling with automated PR updates via GitHub Actions</li>
         <li>Created company-wide base containers compliant with FedRAMP and security best practices</li>
         <li>Maintained database test containers for MariaDB, Aurora/MySQL for service validation</li>
@@ -48,15 +50,15 @@ layout: "single"
     <span class="timeline-company">Opus Interactive</span>
     <span class="timeline-date">Oct 2020 - Apr 2022</span>
     <div class="timeline-description">
-      <p>Led team developing automation tools for provisioning, deployment, maintenance, and reporting for customer infrastructure environments.</p>
+      <p>Led team developing automation tools for the provisioning, deployment, maintenance, and reporting for customer infrastructure environments.</p>
       <ul>
         <li>Led the move to utilizing and contributing to Apache Airflow 2.x</li>
-        <li>Created and maintained DAGs to automate deployments in cloud and on-prem VMware environments using Ansible and Terraform</li>
-        <li>Built DAGs for automated report generation for Operations and Executive teams</li>
+        <li>Created and maintained DAGs in Apache Airflow to automate deployments of infrastructure resources in cloud and on-prem VMware environments with DAGs utilizing Ansible and Terraform</li>
+        <li>Created and maintained DAGs in Apache Airflow to automate report generation for Operations and Executive teams containing actionable data</li>
         <li>Set policy for best practices in coding, testing, and containerization</li>
-        <li>Led initial effort to move various components onto Kubernetes</li>
-        <li>Developed product strategy and future roadmap with CTO and CSO</li>
+        <li>Led initial effort to move various components onto k8s</li>
       </ul>
+      <p>Discussed and developed product strategy and future roadmap w/CTO and CSO to ensure consistent and repeatable practices across all customers to enable easier automation.</p>
     </div>
   </div>
 
@@ -67,13 +69,21 @@ layout: "single"
     <div class="timeline-description">
       <p>Led team that enhanced and maintained the core SL1 IT device monitoring functionality.</p>
       <ul>
-        <li>Enhanced on-boarding of monitored devices by more accurately determining duplicates</li>
-        <li>Improved performance of normalized data generation using single-pass methods</li>
-        <li>Expanded platform to allow new metrics collection beyond SNMP</li>
-        <li>Created generic task scheduling API to replace various task-specific scheduling systems</li>
-        <li>Implemented enhanced security to meet UCAPL requirements</li>
-        <li>Developed microservices in Kubernetes for performance time-series data post-processing</li>
-        <li>Led team developing monitoring integrations (PowerPacks) for Cisco ACI, UCS, VOS, AWS, VMware, and Aliyun</li>
+        <li>Enhancing on-boarding of new monitored devices/services by more accurately determining duplicates</li>
+        <li>Improving the performance of normalized data generation and standard deviation alerting by using single-pass methods</li>
+        <li>Expanding the platform to allow new metrics to be collected more dynamically that were previously only available via SNMP</li>
+        <li>Creating generic task scheduling fronted by an API to replace various task-specific scheduling systems</li>
+      </ul>
+      <p>Implemented enhanced security for infrastructure monitoring product in order to meet UCAPL requirements.</p>
+      <p>Developed extended functionality to infrastructure monitoring by offloading of performance time-series data post-processing to microservices running in k8s.</p>
+      <ul>
+        <li>Streaming data from core system to endpoint that pushed data into Kafka</li>
+        <li>Developing processing and storage services for different types of device/service performance data</li>
+      </ul>
+      <p>Led team that developed and maintained monitoring integrations (PowerPacks) for SL1 product.</p>
+      <ul>
+        <li>Expanding infrastructure monitoring's device/service functionality via these pieces of functionality written in Python by interacting with vendor APIs and transforming to proper data model</li>
+        <li>Main integration work done around Cisco products such as ACI, UCS, VOS, and UCS Director along with integrations for AWS, VMware, Aliyun</li>
       </ul>
     </div>
   </div>
@@ -83,10 +93,13 @@ layout: "single"
     <span class="timeline-company">Hughes Network Systems</span>
     <span class="timeline-date">Feb 2008 - Sept 2014</span>
     <div class="timeline-description">
-      <p>Developed software components on Aero Development Team for the Jupiter satellite project and Satellite Terminal Development Team for the Spaceway project.</p>
+      <p>Developed software components on Aero Development Team for the Jupiter satellite project.</p>
       <ul>
         <li>Developed embedded software for Jupiter terminals using C and C++ in Linux</li>
         <li>Developed antenna command and control interface service based on OpenAMIP protocol</li>
+      </ul>
+      <p>Developed and maintained software components on Satellite Terminal (ST) Development Team for the Spaceway satellite project.</p>
+      <ul>
         <li>Developed and maintained embedded software on VxWorks OS for Spaceway satellite terminals</li>
         <li>Modified internal IPSec module to gain FIPS 140-2 Level 1 certification</li>
         <li>Added QoS support for VoIP communications on satellite</li>
