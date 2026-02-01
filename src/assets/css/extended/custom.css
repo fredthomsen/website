@@ -183,6 +183,41 @@ html {
     font-style: italic;
 }
 
+.timeline-description {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.3s ease, margin 0.3s ease;
+    margin-top: 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.timeline-description p {
+    margin: 0 0 0.75rem 0;
+    color: var(--secondary);
+}
+
+.timeline-description ul {
+    margin: 0;
+    padding-left: 1.25rem;
+}
+
+.timeline-description li {
+    margin-bottom: 0.4rem;
+    color: var(--secondary);
+}
+
+.timeline-item:hover .timeline-description {
+    max-height: 500px;
+    opacity: 1;
+    margin-top: 0.75rem;
+}
+
+.timeline-item:hover {
+    cursor: pointer;
+}
+
 /* Social icons hover effect */
 .social-icons a svg {
     transition: transform 0.3s ease, filter 0.3s ease;
