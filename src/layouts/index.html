@@ -1,0 +1,40 @@
+{{ define "main" }}
+<div class="hero">
+  <div class="hero-content">
+    {{ with .Site.Params.profileMode }}
+    {{ if .imageUrl }}
+    <img draggable="false" src="{{ .imageUrl }}" alt="{{ .imageTitle }}" title="{{ .imageTitle }}"
+      height="{{ .imageHeight }}" width="{{ .imageWidth }}" />
+    {{ end }}
+    <h1>{{ .title | default $.Site.Title }}</h1>
+    {{ end }}
+    {{ with .Site.Params.homeInfoParams }}
+    <span>{{ .Content | markdownify }}</span>
+    {{ end }}
+    {{- partial "social_icons.html" -}}
+  </div>
+  <div class="scroll-indicator">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
+    </svg>
+  </div>
+</div>
+
+<section class="page-section" id="experience">
+  <h2 class="section-title">Experience</h2>
+  {{ with .Site.GetPage "/experience" }}
+  <div class="section-content">
+    {{ .Content }}
+  </div>
+  {{ end }}
+</section>
+
+<section class="page-section" id="skills">
+  <h2 class="section-title">Skills</h2>
+  {{ with .Site.GetPage "/skills" }}
+  <div class="section-content">
+    {{ .Content }}
+  </div>
+  {{ end }}
+</section>
+{{ end }}

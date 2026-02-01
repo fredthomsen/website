@@ -1,0 +1,6 @@
+{{- /* Force dark theme */}}
+{{- if (eq site.Params.defaultTheme "dark") }}
+<script>
+    document.body.classList.add('dark');
+</script>
+{{- end }}

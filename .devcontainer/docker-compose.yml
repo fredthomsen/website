@@ -5,6 +5,6 @@ services:
       - "1313:1313"
     volumes:
       - ../src:/src
-    command: server --bind=0.0.0.0 --baseURL=http://localhost --source=/src --disableFastRender
+    command: server --bind=0.0.0.0 --baseURL=http://localhost:1313 --source=/src --disableFastRender
     environment:
       - HUGO_ENABLEMISSINGCONTENTPLACEHOLDERS=true

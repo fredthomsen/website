@@ -12,10 +12,13 @@ ShowShareButtons = false
 ShowReadingTime = false
 ShowCodeCopyButtons = true
 ShowFullTextinRSS = true
-ShowBreadCrumbs = true
-ShowPostNavLinks = true
+ShowBreadCrumbs = false
+ShowPostNavLinks = false
 enableRobotsTXT = true
 disableThemeToggle = true
+
+[params.label]
+text = ''
 
 [params.homeInfoParams]
 Title = 'Fred Thomsen'
@@ -35,22 +38,3 @@ imageUrl = 'https://fredthomsen-website-content.s3.amazonaws.com/images/swedenst
 imageWidth = 250
 imageHeight = 250
 imageTitle = 'Fred Thomsen'
-
-[[params.profileMode.buttons]]
-name = 'Experience'
-url = '/experience'
-[[params.profileMode.buttons]]
-name = 'Skills'
-url = '/skills'
-
-[menu]
-[[menu.main]]
-identifier = 'experience'
-name = 'Experience'
-url = '/experience/'
-weight = 10
-[[menu.main]]
-identifier = 'skills'
-name = 'Skills'
-url = '/skills/'
-weight = 20
