@@ -1,0 +1,42 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  if (typeof gsap === 'undefined') return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.utils.toArray('.skill-card').forEach((card, i) => {
+    const progress = card.querySelector('.progress-ring-fill');
+    const percent = card.dataset.percent;
+
+    gsap.from(card, {
+      scrollTrigger: { trigger: card, start: 'top 85%' },
+      duration: 0.5,
+      opacity: 0,
+      y: 30,
+      delay: i * 0.1
+    });
+
+    if (progress) {
+      gsap.to(progress, {
+        scrollTrigger: { trigger: card, start: 'top 85%' },
+        strokeDashoffset: 283 - (283 * percent / 100),
+        duration: 1,
+        delay: i * 0.1 + 0.3,
+        ease: 'power2.out'
+      });
+    }
+  });
+
+  gsap.utils.toArray('.timeline-item').forEach((item, i) => {
+    gsap.from(item, {
+      scrollTrigger: { trigger: item, start: 'top 85%' },
+      duration: 0.6,
+      opacity: 0,
+      x: -20,
+      delay: i * 0.15
+    });
+  });
+});
+</script>

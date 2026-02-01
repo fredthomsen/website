@@ -3,17 +3,34 @@ title: "Experience"
 layout: "single"
 ---
 
-## Principal Software Engineer - Artisan Studios
-*Apr 2024 - Present*
+<div class="timeline">
+  <div class="timeline-item">
+    <h3>Principal Software Engineer</h3>
+    <span class="timeline-company">Artisan Studios</span>
+    <span class="timeline-date">Apr 2024 - Present</span>
+  </div>
 
-## Senior Software Architect/Principal Software Engineer - ScienceLogic
-*Apr 2022 - Jan 2024*
+  <div class="timeline-item">
+    <h3>Senior Software Architect / Principal Software Engineer</h3>
+    <span class="timeline-company">ScienceLogic</span>
+    <span class="timeline-date">Apr 2022 - Jan 2024</span>
+  </div>
 
-## Senior Software Engineer - Opus Interactive
-*Oct 2020 - Apr 2022*
+  <div class="timeline-item">
+    <h3>Senior Software Engineer</h3>
+    <span class="timeline-company">Opus Interactive</span>
+    <span class="timeline-date">Oct 2020 - Apr 2022</span>
+  </div>
 
-## Senior Software Engineer - ScienceLogic
-*Sept 2014 - Oct 2020*
+  <div class="timeline-item">
+    <h3>Senior Software Engineer</h3>
+    <span class="timeline-company">ScienceLogic</span>
+    <span class="timeline-date">Sept 2014 - Oct 2020</span>
+  </div>
 
-## Software Engineer - Hughes Network Systems
-*Feb 2008 - Sept 2014*
+  <div class="timeline-item">
+    <h3>Software Engineer</h3>
+    <span class="timeline-company">Hughes Network Systems</span>
+    <span class="timeline-date">Feb 2008 - Sept 2014</span>
+  </div>
+</div>
