@@ -31,6 +31,8 @@ Generates optimized static files in `src/public/`.
 
 Automatic deployment to GitHub Pages on push to `master` branch via GitHub Actions.
 
+All local development should be done WITHIN devcontainer.
+
 ## Project Structure
 
 ```
