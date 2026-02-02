@@ -38,5 +38,206 @@ document.addEventListener('DOMContentLoaded', function() {
       delay: i * 0.15
     });
   });
+
+  const canvas = document.getElementById('mesh-canvas');
+  if (!canvas) return;
+
+  const ctx = canvas.getContext('2d');
+  const mouse = { x: null, y: null };
+  let scrollProgress = 0;
+  let time = 0;
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+
+  const colors = [
+    { r: 59, g: 130, b: 246 },
+    { r: 96, g: 165, b: 250 },
+    { r: 37, g: 99, b: 235 },
+    { r: 14, g: 165, b: 233 },
+    { r: 56, g: 189, b: 248 },
+    { r: 34, g: 211, b: 238 }
+  ];
+
+  class Node {
+    constructor(x, y, layer, index) {
+      this.baseX = x;
+      this.baseY = y;
+      this.x = x;
+      this.y = y;
+      this.layer = layer;
+      this.index = index;
+      this.size = 2 + Math.random() * 2;
+      this.speedX = 0.3 + Math.random() * 0.7;
+      this.speedY = 0.3 + Math.random() * 0.7;
+      this.amplitude = 15 + Math.random() * 25;
+      this.orbitSpeed = 0.0003 + Math.random() * 0.0007;
+      this.phaseX = Math.random() * Math.PI * 2;
+      this.phaseY = Math.random() * Math.PI * 2;
+      this.color = colors[Math.floor(Math.random() * colors.length)];
+      this.pulseOffset = Math.random() * Math.PI * 2;
+      this.pulseSpeed = 0.001 + Math.random() * 0.002;
+    }
+
+    update() {
+      const scrollOffset = scrollProgress * this.layer * 100;
+      const t = time * this.orbitSpeed;
+
+      this.x = this.baseX +
+               Math.sin(t * this.speedX + this.phaseX) * this.amplitude +
+               Math.cos(t * 0.5 + this.phaseY) * (this.amplitude * 0.3);
+
+      this.y = this.baseY + scrollOffset +
+               Math.cos(t * this.speedY + this.phaseY) * this.amplitude +
+               Math.sin(t * 0.7 + this.phaseX) * (this.amplitude * 0.3);
+
+      if (mouse.x !== null && mouse.y !== null) {
+        const dx = mouse.x - this.x;
+        const dy = mouse.y - this.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < 150) {
+          const force = (150 - distance) / 150;
+          this.x += dx * force * 0.05;
+          this.y += dy * force * 0.05;
+        }
+      }
+    }
+
+    draw() {
+      const glowIntensity = this.getGlowIntensity();
+      const pulse = Math.sin(time * this.pulseSpeed + this.pulseOffset) * 0.3 + 0.7;
+      const currentSize = this.size * pulse;
+
+      const baseAlpha = 0.4 + pulse * 0.3;
+      const alpha = baseAlpha + glowIntensity * 0.5;
+
+      ctx.shadowBlur = 15 + pulse * 10;
+      ctx.shadowColor = `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, ${alpha})`;
+
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, currentSize, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, ${alpha})`;
+      ctx.fill();
+
+      if (glowIntensity > 0.3) {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, currentSize * 2, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, ${glowIntensity * 0.2})`;
+        ctx.fill();
+      }
+
+      ctx.shadowBlur = 0;
+    }
+
+    getGlowIntensity() {
+      if (mouse.x === null || mouse.y === null) return 0;
+      const dx = mouse.x - this.x;
+      const dy = mouse.y - this.y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      return distance < 150 ? (150 - distance) / 150 : 0;
+    }
+  }
+
+  const isMobile = window.innerWidth < 768;
+  const nodeCount = isMobile ? 20 : 35;
+  const cols = Math.ceil(Math.sqrt(nodeCount * (canvas.width / canvas.height)));
+  const rows = Math.ceil(nodeCount / cols);
+  const nodes = [];
+
+  for (let i = 0; i < nodeCount; i++) {
+    const col = i % cols;
+    const row = Math.floor(i / cols);
+    const x = (canvas.width / (cols + 1)) * (col + 1) + (Math.random() - 0.5) * 80;
+    const y = (canvas.height / (rows + 1)) * (row + 1) + (Math.random() - 0.5) * 80;
+    const layer = Math.random() * 2 - 1;
+    nodes.push(new Node(x, y, layer, i));
+  }
+
+  function drawConnections() {
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i + 1; j < nodes.length; j++) {
+        const dx = nodes[i].x - nodes[j].x;
+        const dy = nodes[i].y - nodes[j].y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < 140) {
+          const baseOpacity = (140 - distance) / 140 * 0.35;
+          const pulse = Math.sin(time * 0.001 + (i + j) * 0.1) * 0.15 + 0.85;
+          const mouseBoost = Math.max(nodes[i].getGlowIntensity(), nodes[j].getGlowIntensity()) * 0.4;
+
+          const avgColor = {
+            r: (nodes[i].color.r + nodes[j].color.r) / 2,
+            g: (nodes[i].color.g + nodes[j].color.g) / 2,
+            b: (nodes[i].color.b + nodes[j].color.b) / 2
+          };
+
+          const gradient = ctx.createLinearGradient(nodes[i].x, nodes[i].y, nodes[j].x, nodes[j].y);
+          gradient.addColorStop(0, `rgba(${nodes[i].color.r}, ${nodes[i].color.g}, ${nodes[i].color.b}, ${(baseOpacity + mouseBoost) * pulse})`);
+          gradient.addColorStop(1, `rgba(${nodes[j].color.r}, ${nodes[j].color.g}, ${nodes[j].color.b}, ${(baseOpacity + mouseBoost) * pulse})`);
+
+          ctx.shadowBlur = 3;
+          ctx.shadowColor = `rgba(${avgColor.r}, ${avgColor.g}, ${avgColor.b}, 0.5)`;
+
+          ctx.beginPath();
+          ctx.moveTo(nodes[i].x, nodes[i].y);
+          ctx.lineTo(nodes[j].x, nodes[j].y);
+          ctx.strokeStyle = gradient;
+          ctx.lineWidth = 1 + mouseBoost * 2;
+          ctx.stroke();
+
+          ctx.shadowBlur = 0;
+        }
+      }
+    }
+  }
+
+  function animate() {
+    time++;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    const gradient = ctx.createRadialGradient(
+      canvas.width / 2, canvas.height / 2, 0,
+      canvas.width / 2, canvas.height / 2, Math.max(canvas.width, canvas.height) * 0.8
+    );
+    gradient.addColorStop(0, '#0f1629');
+    gradient.addColorStop(0.5, '#0a0a18');
+    gradient.addColorStop(1, '#050510');
+
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    nodes.forEach(node => node.update());
+    drawConnections();
+    nodes.forEach(node => node.draw());
+
+    requestAnimationFrame(animate);
+  }
+
+  ScrollTrigger.create({
+    trigger: 'body',
+    start: 'top top',
+    end: 'bottom bottom',
+    onUpdate: (self) => {
+      scrollProgress = self.progress;
+    }
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+  });
+
+  window.addEventListener('mouseleave', () => {
+    mouse.x = null;
+    mouse.y = null;
+  });
+
+  animate();
 });
 </script>
