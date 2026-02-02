@@ -1,5 +1,11 @@
 # Agent Guidelines
 
+## Developer Workflow
+
+**IMPORTANT:** See [README.md](README.md) for development setup and workflow requirements.
+
+All local development and testing MUST be done within the devcontainer. Use `make serve` to start the development server.
+
 ## Core Principles
 
 1. **Be idiomatic with Hugo** - Use Hugo's built-in features, conventions, and templating patterns
