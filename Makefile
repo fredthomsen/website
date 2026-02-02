@@ -1,5 +1,3 @@
-THEME:=tella
-
 .PHONY: serve
 serve:
 	docker compose -f .devcontainer/docker-compose.yml up -d
