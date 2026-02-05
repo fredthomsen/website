@@ -38,4 +38,13 @@
   </div>
   {{ end }}
 </section>
+
+<section class="page-section" id="certifications">
+  <h2 class="section-title">Certifications</h2>
+  {{ with .Site.GetPage "/certifications" }}
+  <div class="section-content">
+    {{ .Content }}
+  </div>
+  {{ end }}
+</section>
 {{ end }}

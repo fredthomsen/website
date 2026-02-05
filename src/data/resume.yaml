@@ -1,0 +1,200 @@
+personal:
+  name: Fred Thomsen
+  title: Software Engineer
+  email: me@fredthomsen.net
+  phone: (804) 453-0046
+  address: 57 Hidden Cove Dr. Valparaiso, FL 32580
+
+summary: |
+  Capable Software Engineer with 17 years of experience in developing, supporting, and operationalizing enterprise software.  Experience in telecommunications, monitoring, and supply chain industries engineering cloud native, embedded, and data processing solutions.  Led various successful teams that delivered scalable and reliable solutions by embracing the principle that a team should own their software components at all stages of the software development life-cycle and utilizing existing tools or open-source software as a force multiplier.
+
+experience:
+  - company: Artisan Studios
+    url: https://artisanstudios.com/
+    title: Principal Engineer
+    dates: April 2024 - Present
+    location: Asheville, NC (Remote)
+    summary: Technical lead of an enterprise automation platform built on Apache Airflow, driving workflow orchestration and release engineering across business systems.
+    achievements:
+      - text: Designed and maintained a scalable automation platform supporting end-to-end workflow orchestration across data engineering, test automation, and integration testing domains
+        details:
+          - Built functional testing of integrations between commercial systems via Apache Airflow DAGs for various end-to-end scenarios
+          - Designed reusable modules and packages enabling rapid development and consistency across automation pipelines
+          - Owned underlying Apache Airflow infrastructure maintenance and optimization
+      - text: Completed internal AI Engineering program developing practical AI implementation skills across multiple domains
+        details:
+          - Built retrieval-augmented generation (RAG) systems using embedding models with semantic, lexical, and hybrid search approaches
+          - Implemented vision models and OCR extraction pipelines for document processing
+          - Developed comprehensive evaluation frameworks for assessing AI model performance and quality
+      - text: Transitioned to client-facing engagements applying AI techniques to drive business insights and marketing strategy
+        details:
+          - Analyzed customer sentiment from social media platforms to identify marketing opportunities
+          - Delivered actionable insights enabling data-driven marketing decisions
+      - text: Built and optimized CI/CD pipelines for continuous deployment of platform updates, ensuring reliable and repeatable delivery
+      - text: Incorporated AI components into workflow automation to enhance testing validation and data quality processes
+        details:
+          - Normalized customer ordering data and ETL into data warehouse
+          - Constructed and deployed system load testing scenarios
+      - text: Provided architectural guidance and enforced platform standards across the codebase through PR reviews and mentorship
+      - text: Translated high-level client objectives into technical roadmaps and priorities, managed backlog, and coordinated cross-functional delivery
+
+  - company: ScienceLogic
+    url: https://sciencelogic.com/
+    title: Senior Software Architect / Principal Software Engineer
+    dates: April 2022 - February 2024
+    location: Reston, VA (Remote)
+    achievements:
+      - text: Designed and developed enhancements/future of infrastructure monitoring product (SL1, previously known as EM7).
+        details:
+          - Developed functionality to egress data and add data analytics via services processing data running in EKS.
+          - Developed SL1 receiver and AWS Timestream exporter OTEL components in Go to extract metrics data from infrastructure monitoring platform, transform, and store in OTEL format enabling the leveraging of the OpenTelemetry ecosystem.
+          - Ensured AI prediction algorithms had easy and rapid access to the appropriate metrics data in Clickhouse.
+          - Automated deployment environment for this functionality by leveraging Terraform and Ansible ensuring consistent development, staging and production environments and also ensuring security by default and low blast radius configurations.
+          - Advocated for more utilization of open source solutions in the product and contributing to open source.
+      - text: Led working group to improve developer experience by improving on-boarding and reducing feedback times.
+        details:
+          - Set gilded path for python project structure and tooling w/automated PR updates to projects based on a template, initially via Jenkins then converted to GitHub Actions, improving speed of development.
+          - Created python project templates that enabled proper testing for services written in python2.7 to be converted to be compatible w/python2.7 and >= python3.7 thus improving migration speed.
+          - Created company-wide base containers for services leading to faster service creation and security updates including FedRAMP compliance.
+          - Ensured proper container test environments to run continuous integration tests.
+          - Maintained database test containers pre-populated with schema and data for service and library validation for MariaDB 10.6, Aurora 2/MySQL 5.7, and Aurora 3/MySQL 8.0 RDMSes to add more automation and confidence to database migrations.
+
+  - company: Opus Interactive
+    url: https://opusinteractive.com/
+    title: Senior Software Engineer
+    dates: October 2020 - April 2022
+    location: Hillsboro, OR (Remote)
+    achievements:
+      - text: Led team that developed automation tools for the provisioning, deployment, maintenance, and reporting for customer infrastructure environments.
+        details:
+          - Led the move to utilizing and contributing to Apache Airflow 2.x and underlying dependencies, including Flask-AppBuilder for LDAP authentication issues.
+          - Created and maintained workflows in Apache Airflow to automate deployments of infrastructure resources in cloud and on-prem VMware environments utilizing Ansible and Terraform.
+          - Created and maintained workflows in Apache Airflow to automate report generation for Operations and Executive teams containing actionable data.
+          - Set policy for best practices in coding, testing, and containerization.
+          - Led initial effort to move various components onto k8s.
+      - text: Discussed and developed product strategy and future roadmap w/CTO and CSO to ensure consistent and repeatable practices across all customers to enable easier automation.
+
+  - company: ScienceLogic
+    url: https://sciencelogic.com/
+    title: Senior Software Engineer
+    dates: September 2014 - October 2020
+    location: Reston, VA (Remote)
+    achievements:
+      - text: Led team that enhanced and maintained the core SL1 IT device monitoring functionality.
+        details:
+          - Enhanced on-boarding of new monitored devices/services by more accurately determining duplicates.
+          - Contributed to new device on-boarding UI workflow written in React.
+          - Improved the performance of normalized data generation and standard deviation alerting by using single-pass methods.
+          - Expanded the platform to allow new metrics to be collected more dynamically that were previously only available via SNMP.
+          - Created generic task scheduling fronted by an API to replace various task-specific scheduling systems.
+      - text: Implemented enhanced security for infrastructure monitoring product in order to meet UCAPL requirements.
+      - text: Developed extended functionality to infrastructure monitoring by offloading of performance time-series data post-processing to microservices running in k8s.
+        details:
+          - Streamed data from core system to endpoint that pushed data into Kafka.
+          - Developed processing and storage services for different types of device/service performance data.
+          - Automated system for performance testing this data pipeline via Ansible.
+          - Developed generic CI/CD pipelines in Jenkins to support these services.
+      - text: Led team that developed and maintained monitoring integrations (PowerPacks) for SL1 product.
+        details:
+          - Expanded infrastructure monitoring's device/service functionality via these pieces of functionality written in Python by interacting with vendor APIs and transforming to proper data model.
+          - Main integration work done around Cisco products such as ACI, UCS, VOS, and UCS Director along w/ integrations for AWS, VMWare, Aliyun.
+
+  - company: Hughes Network Systems
+    url: https://www.hughes.com/
+    title: Software Engineer
+    dates: February 2008 - September 2014
+    location: Germantown, MD
+    achievements:
+      - text: Developed software components on Aero Development Team for the Jupiter satellite project.
+        details:
+          - Developed embedded software running on Jupiter terminals using C and C++ in Linux.
+          - Developed antenna command and control interface service based on OpenAMIP protocol.
+      - text: Developed and maintained software components on Satellite Terminal (ST) Development Team for the Spaceway satellite project.
+        details:
+          - Developed and maintained embedded software running on the ST using C and C++ on VxWorks OS.
+          - Performed on-call support for operational field issues.
+          - Performed open and proprietary network protocol debugging utilizing Wireshark and other utilities.
+          - Modified internal IPSec software module on the ST to gain FIPS 140-2 Level 1 certification.
+          - Updated and created simple web interfaces for embedded systems.
+          - Added QoS support for VoIP communications on satellite.
+          - Enhanced NAT performance on terminal.
+
+skills:
+  languages:
+    - Python
+    - Go
+    - C
+    - C++
+  platforms_tools:
+    - Docker
+    - Kubernetes
+    - Ansible
+    - Terraform
+    - AWS
+    - GitHub Workflows
+    - Apache Airflow
+    - OpenTelemetry
+    - Flask
+    - Git
+    - Linux
+    - Helm
+  data_stores:
+    - MariaDB
+    - MySQL
+    - Redis
+    - Kafka
+    - Cassandra/ScyllaDB
+    - Clickhouse
+
+skills_proficiency:
+  # Languages
+  Python: 100
+  Go: 50
+  C: 75
+  "C++": 75
+
+  # Platforms/Tools
+  Docker: 90
+  Kubernetes: 75
+  Ansible: 70
+  Terraform: 70
+  AWS: 75
+  "GitHub Workflows": null
+  "Apache Airflow": 100
+  OpenTelemetry: null
+  Flask: null
+  Git: 80
+  Linux: 80
+  Helm: null
+
+  # Data Stores
+  MariaDB: 80
+  MySQL: 80
+  Redis: 75
+  Kafka: 70
+  "Cassandra/ScyllaDB": null
+  Clickhouse: null
+
+education:
+  - institution: Virginia Tech
+    degree: BS, Computer Engineering
+    note: Graduated Cum Laude in December 2007
+
+certifications:
+  - name: AWS Certified Machine Learning Specialty
+    issuer: Amazon
+    url: https://www.credly.com/earner/earned/badge/fa5b5bab-ae12-4fc3-a6a1-6ee1ec2e4b55
+  - name: AWS Certified Solutions Architect
+    issuer: Amazon
+    url: https://www.credly.com/earner/earned/badge/4616c971-778a-43ac-88fb-cf5f0c72a160
+  - name: GCP Certified Professional Machine Learning Engineer
+    issuer: Google
+    url: https://www.credly.com/earner/earned/badge/03ab8531-a7da-428d-a621-602464b36694
+  - name: Certified Kubernetes Administrator
+    issuer: Linux Foundation
+    status: Expired
+    url: https://www.credly.com/earner/earned/badge/1175c1da-7e2d-4270-869a-2e35c464cb0d
+  - name: Certified Kubernetes Application Developer
+    issuer: Linux Foundation
+    status: Expired
+    url: https://www.credly.com/earner/earned/badge/b8d2515d-a19d-4a73-b0dc-80168a3d7fe8

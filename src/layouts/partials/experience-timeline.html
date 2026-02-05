@@ -1,0 +1,34 @@
+<div class="timeline">
+{{ range .Site.Data.resume.experience }}
+  <div class="timeline-item">
+    <h3>{{ .title }}</h3>
+    <span class="timeline-company">{{ .company }}</span>
+    <span class="timeline-date">{{ .dates }}</span>
+
+    {{ if .summary }}
+    <div class="timeline-description">
+      <p>{{ .summary }}</p>
+    </div>
+    {{ end }}
+
+    {{ if .achievements }}
+    <div class="timeline-description">
+      <ul>
+        {{ range .achievements }}
+        <li>
+          {{ .text | markdownify }}
+          {{ if .details }}
+          <ul>
+            {{ range .details }}
+            <li>{{ . | markdownify }}</li>
+            {{ end }}
+          </ul>
+          {{ end }}
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+    {{ end }}
+  </div>
+{{ end }}
+</div>

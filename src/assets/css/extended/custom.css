@@ -242,6 +242,31 @@ html {
     filter: brightness(1.2);
 }
 
+/* Certifications */
+.certifications-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.cert-item {
+    padding: 1.5rem;
+    background: var(--entry);
+    border-radius: 8px;
+    border-left: 3px solid var(--tertiary);
+}
+
+.cert-item h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.cert-issuer {
+    color: var(--secondary);
+    font-size: 0.9rem;
+}
+
 /* Monospace font for tech feel */
 .post-title, h1, h2, h3 {
     font-family: "Courier New", Courier, monospace;

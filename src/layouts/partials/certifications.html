@@ -1,0 +1,8 @@
+<div class="certifications-list">
+{{ range .Site.Data.resume.certifications }}
+  <div class="cert-item">
+    <h3>{{ .name }}</h3>
+    <span class="cert-issuer">{{ .issuer }}</span>
+  </div>
+{{ end }}
+</div>
