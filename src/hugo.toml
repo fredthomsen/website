@@ -28,6 +28,9 @@ Title = 'Fred Thomsen'
 Content = 'Developer/Grappler/Metalhead/Swede/All-Around Nerd'
 
 [[params.socialIcons]]
+name = 'email'
+url = 'mailto:fae4wtf2f23r.bc9z4@passmail.net'
+[[params.socialIcons]]
 name = 'linkedin'
 url = 'https://www.linkedin.com/in/fredthomsen'
 [[params.socialIcons]]
