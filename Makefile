@@ -1,10 +1,12 @@
+DOCKER ?= podman
+
 .PHONY: serve
 serve:
-	docker compose -f .devcontainer/docker-compose.yml up -d
+	$(DOCKER) compose -f .devcontainer/docker-compose.yml up -d
 
 .PHONY: clean
 clean:
-	docker compose -f .devcontainer/docker-compose.yml down -v
+	$(DOCKER) compose -f .devcontainer/docker-compose.yml down -v
 
 .PHONY: build
 build:
