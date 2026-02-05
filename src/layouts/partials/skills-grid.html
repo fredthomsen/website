@@ -23,17 +23,16 @@
   {{ end }}
 {{ end }}
 
-{{/* Sort by proficiency desc, take top 8 */}}
-{{ $topSkills := first 8 (sort $allSkills "proficiency" "desc") }}
+{{/* Sort by proficiency desc, take top 12 */}}
+{{ $topSkills := first 12 (sort $allSkills "proficiency" "desc") }}
 
-<div class="skills-grid">
+<div class="skills-list">
 {{ range $topSkills }}
-  <div class="skill-card" data-percent="{{ .proficiency }}">
-    <svg class="progress-ring" viewBox="0 0 100 100">
-      <circle class="progress-ring-bg" cx="50" cy="50" r="45"/>
-      <circle class="progress-ring-fill" cx="50" cy="50" r="45"/>
-    </svg>
-    <h3>{{ .name }}</h3>
+  <div class="skill-item">
+    <div class="skill-name">{{ .name }}</div>
+    <div class="skill-bar-bg">
+      <div class="skill-bar-fill" data-percent="{{ .proficiency }}" style="width: 0%;"></div>
+    </div>
   </div>
 {{ end }}
 </div>

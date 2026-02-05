@@ -96,53 +96,50 @@ html {
 }
 
 /* Skills Grid */
-.skills-grid {
+.skills-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
     padding: 1rem 0;
 }
 
-.skill-card {
+@media (max-width: 768px) {
+    .skills-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+.skill-item {
     background: var(--entry);
-    border-radius: 12px;
-    padding: 1.5rem;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 8px;
+    padding: 1rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.skill-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+.skill-item:hover {
+    transform: translateX(4px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Radial Progress */
-.progress-ring {
-    width: 100px;
-    height: 100px;
-    margin: 0 auto 1rem;
+.skill-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
 }
 
-.progress-ring-bg {
-    fill: none;
-    stroke: var(--border);
-    stroke-width: 8;
+.skill-bar-bg {
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
 }
 
-.progress-ring-fill {
-    fill: none;
-    stroke: #28a745;
-    stroke-width: 8;
-    stroke-linecap: round;
-    stroke-dasharray: 283;
-    stroke-dashoffset: 283;
-    transform: rotate(-90deg);
-    transform-origin: center;
-}
-
-.skill-card h3 {
-    margin: 0;
-    font-size: 1.1rem;
+.skill-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #28a745, #20c997);
+    border-radius: 4px;
+    transition: width 1s ease-out;
 }
 
 /* Experience Timeline */

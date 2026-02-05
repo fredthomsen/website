@@ -6,24 +6,24 @@ document.addEventListener('DOMContentLoaded', function() {
   if (typeof gsap === 'undefined') return;
   gsap.registerPlugin(ScrollTrigger);
 
-  gsap.utils.toArray('.skill-card').forEach((card, i) => {
-    const progress = card.querySelector('.progress-ring-fill');
-    const percent = card.dataset.percent;
+  gsap.utils.toArray('.skill-item').forEach((item, i) => {
+    const bar = item.querySelector('.skill-bar-fill');
+    const percent = bar?.dataset.percent;
 
-    gsap.from(card, {
-      scrollTrigger: { trigger: card, start: 'top 85%' },
+    gsap.from(item, {
+      scrollTrigger: { trigger: item, start: 'top 85%' },
       duration: 0.5,
       opacity: 0,
-      y: 30,
-      delay: i * 0.1
+      x: -20,
+      delay: i * 0.05
     });
 
-    if (progress) {
-      gsap.to(progress, {
-        scrollTrigger: { trigger: card, start: 'top 85%' },
-        strokeDashoffset: 283 - (283 * percent / 100),
+    if (bar && percent) {
+      gsap.to(bar, {
+        scrollTrigger: { trigger: item, start: 'top 85%' },
+        width: percent + '%',
         duration: 1,
-        delay: i * 0.1 + 0.3,
+        delay: i * 0.05 + 0.2,
         ease: 'power2.out'
       });
     }
