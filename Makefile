@@ -11,3 +11,7 @@ clean:
 .PHONY: build
 build:
 	cd src && hugo build --minify && cd ..
+
+.PHONY: sync
+sync:
+	./scripts/sync-resume.sh
