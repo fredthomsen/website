@@ -11,6 +11,7 @@ All local development and testing MUST be done within the devcontainer. Use `mak
 1. **Be idiomatic with Hugo** - Use Hugo's built-in features, conventions, and templating patterns
 2. **Efficiency first** - Make changes in the most direct way possible; avoid unnecessary abstractions
 3. **Respect the theme** - Override PaperMod via `layouts/` and `assets/css/extended/`, never modify theme files directly
+4. **Cross-browser standards first** - Use latest cross-browser HTML and CSS standards; only use JavaScript when CSS cannot fulfill the goals (e.g., event handling, state management, complex animations requiring scroll triggers). Avoid browser-specific prefixes and non-standard features
 
 ## Project Structure
 

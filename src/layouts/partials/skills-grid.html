@@ -1,25 +1,21 @@
-{{ $proficiency := .Site.Data.resume.skills_proficiency }}
 {{ $allSkills := slice }}
 
 {{/* Collect all skills from resume with proficiency */}}
-{{ range .Site.Data.resume.skills.languages }}
-  {{ $prof := index $proficiency . }}
+{{ range $name, $prof := .Site.Data.resume.skills.languages }}
   {{ if and $prof (ne $prof nil) }}
-    {{ $allSkills = $allSkills | append (dict "name" . "proficiency" $prof) }}
+    {{ $allSkills = $allSkills | append (dict "name" $name "proficiency" $prof) }}
   {{ end }}
 {{ end }}
 
-{{ range .Site.Data.resume.skills.platforms_tools }}
-  {{ $prof := index $proficiency . }}
+{{ range $name, $prof := .Site.Data.resume.skills.platforms_tools }}
   {{ if and $prof (ne $prof nil) }}
-    {{ $allSkills = $allSkills | append (dict "name" . "proficiency" $prof) }}
+    {{ $allSkills = $allSkills | append (dict "name" $name "proficiency" $prof) }}
   {{ end }}
 {{ end }}
 
-{{ range .Site.Data.resume.skills.data_stores }}
-  {{ $prof := index $proficiency . }}
+{{ range $name, $prof := .Site.Data.resume.skills.data_stores }}
   {{ if and $prof (ne $prof nil) }}
-    {{ $allSkills = $allSkills | append (dict "name" . "proficiency" $prof) }}
+    {{ $allSkills = $allSkills | append (dict "name" $name "proficiency" $prof) }}
   {{ end }}
 {{ end }}
 

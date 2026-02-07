@@ -1,16 +1,39 @@
+:root {
+    --accent-primary: #1abc9c;
+    --accent-gradient-start: #1abc9c;
+    --accent-gradient-end: #16a085;
+}
+
 body.dark {
-    background: #0a0a18;
+    background: #0a0a18 !important;
     position: relative;
 }
 
-#mesh-canvas {
+body.dark::before {
+    content: '';
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: -1;
+    background:
+        radial-gradient(ellipse at top, rgba(26, 188, 156, 0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at bottom, rgba(14, 165, 233, 0.1) 0%, transparent 50%),
+        linear-gradient(135deg,
+            #0a0a18 0%,
+            #0f1629 25%,
+            #0d1a24 50%,
+            #0a1520 75%,
+            #0a0a18 100%
+        );
     pointer-events: none;
+}
+
+body {
+    text-rendering: optimizeLegibility;
+    line-height: 1.7;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", sans-serif;
 }
 
 html {
@@ -19,7 +42,7 @@ html {
 
 /* Page sections */
 .page-section {
-    padding: 4rem 0;
+    padding: clamp(3rem, 5vw, 5rem) 0;
     max-width: 800px;
     margin: 0 auto;
 }
@@ -37,14 +60,14 @@ html {
 
 /* Hero Section */
 .hero {
-    height: 100vh;
+    height: 100dvh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
-    padding-bottom: 4rem;
     box-sizing: border-box;
+    margin-top: calc(-1 * var(--gap));
 }
 
 .hero-content {
@@ -55,17 +78,46 @@ html {
     text-align: center;
 }
 
+@keyframes hero-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero img,
+.hero h1,
+.hero-content > span,
+.hero .social-icons {
+    animation: hero-fade-in 0.8s ease-out both;
+}
+
 .hero h1 {
     margin: 0;
+    animation-delay: 0.2s;
+}
+
+.hero-content > span {
+    animation-delay: 0.4s;
+}
+
+.hero .social-icons {
+    animation-delay: 0.6s;
 }
 
 .hero img {
     border-radius: 50%;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 20px rgba(26, 188, 156, 0.3);
 }
 
 .hero img:hover {
     transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(26, 188, 156, 0.6);
 }
 
 /* Scroll Indicator */
@@ -74,13 +126,13 @@ html {
     bottom: 1.5rem;
     left: 50%;
     transform: translateX(-50%);
-    animation: bounce 2s infinite;
 }
 
 .scroll-indicator svg {
     width: 32px;
     height: 32px;
     opacity: 0.7;
+    animation: bounce 2s ease-in-out infinite;
 }
 
 @keyframes bounce {
@@ -99,7 +151,7 @@ html {
 .skills-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1rem;
+    gap: 1.25rem;
     padding: 1rem 0;
 }
 
@@ -110,7 +162,10 @@ html {
 }
 
 .skill-item {
-    background: var(--entry);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     padding: 1rem;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -118,7 +173,7 @@ html {
 
 .skill-item:hover {
     transform: translateX(4px);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px var(--accent-primary), 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
 .skill-name {
@@ -137,9 +192,13 @@ html {
 
 .skill-bar-fill {
     height: 100%;
-    background: linear-gradient(90deg, #28a745, #20c997);
+    background: linear-gradient(90deg, var(--accent-gradient-start), var(--accent-gradient-end));
     border-radius: 4px;
     transition: width 1s ease-out;
+}
+
+.skill-bar-fill:hover {
+    filter: brightness(1.1);
 }
 
 /* Experience Timeline */
@@ -160,19 +219,36 @@ html {
 
 .timeline-item {
     position: relative;
-    padding: 1rem 0 2rem 1.5rem;
+    padding: 1rem 0 2.5rem 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    padding-left: 2.5rem;
+    padding-right: 1rem;
+    padding-top: 1.5rem;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .timeline-item::before {
     content: '';
     position: absolute;
     left: -2rem;
-    top: 1.25rem;
+    top: 1.75rem;
     width: 10px;
     height: 10px;
-    background: #28a745;
+    background: var(--accent-primary);
     border-radius: 50%;
     transform: translateX(-4px);
+    box-shadow: 0 0 8px var(--accent-primary);
+}
+
+.timeline-item:hover,
+.timeline-item.expanded {
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 15px rgba(26, 188, 156, 0.2), 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
 .timeline-item h3 {
@@ -198,7 +274,12 @@ html {
     max-height: 0;
     overflow: hidden;
     opacity: 0;
-    transition: max-height 0.4s ease, opacity 0.3s ease, margin 0.3s ease;
+    transform: translateY(-10px);
+    transition:
+        max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        margin 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     margin-top: 0;
     font-size: 0.9rem;
     line-height: 1.6;
@@ -219,13 +300,15 @@ html {
     color: var(--secondary);
 }
 
-.timeline-item:hover .timeline-description {
-    max-height: 500px;
+.timeline-item:hover .timeline-description,
+.timeline-item.expanded .timeline-description {
+    max-height: 800px;
     opacity: 1;
+    transform: translateY(0);
     margin-top: 0.75rem;
 }
 
-.timeline-item:hover {
+.timeline-item {
     cursor: pointer;
 }
 
@@ -236,7 +319,19 @@ html {
 
 .social-icons a:hover svg {
     transform: scale(1.2);
-    filter: brightness(1.2);
+    filter: brightness(1.2) drop-shadow(0 0 8px currentColor);
+}
+
+.social-icons a[href*="github"]:hover svg {
+    filter: brightness(1.2) drop-shadow(0 0 8px #ffffff);
+}
+
+.social-icons a[href*="linkedin"]:hover svg {
+    filter: brightness(1.2) drop-shadow(0 0 8px #0077b5);
+}
+
+.social-icons a[href*="mailto"]:hover svg {
+    filter: brightness(1.2) drop-shadow(0 0 8px var(--accent-primary));
 }
 
 /* Certifications */
@@ -249,9 +344,18 @@ html {
 
 .cert-item {
     padding: 0.75rem 1rem;
-    background: var(--entry);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     border-radius: 6px;
-    border-left: 2px solid var(--tertiary);
+    border-left: 3px solid var(--accent-primary);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cert-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 10px rgba(26, 188, 156, 0.3), 0 12px 40px rgba(0, 0, 0, 0.2);
 }
 
 .cert-item h3 {
@@ -266,5 +370,37 @@ html {
 
 /* Monospace font for tech feel */
 .post-title, h1, h2, h3 {
-    font-family: "Courier New", Courier, monospace;
+    font-family: "JetBrains Mono", "Courier New", Courier, monospace;
+    letter-spacing: -0.02em;
+}
+
+h1 {
+    font-weight: 700;
+}
+
+h2 {
+    font-weight: 600;
+}
+
+h3 {
+    font-weight: 600;
+}
+
+.section-title {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .scroll-indicator,
+    .hero img,
+    .hero h1,
+    .hero-content > span,
+    .hero .social-icons {
+        animation: none !important;
+        opacity: 1 !important;
+    }
+
+    html {
+        scroll-behavior: auto !important;
+    }
 }
