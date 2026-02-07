@@ -14,29 +14,28 @@ experience:
     title: Principal Engineer
     dates: April 2024 - Present
     location: Asheville, NC (Remote)
-    summary: Technical lead of an enterprise automation platform built on Apache Airflow, driving workflow orchestration and release engineering across business systems.
     achievements:
-      - text: Designed and maintained a scalable automation platform supporting end-to-end workflow orchestration across data engineering, test automation, and integration testing domains
+      - text: Led enterprise automation platform built on Apache Airflow, driving workflow orchestration and release engineering across business systems
         details:
+          - Designed and maintained a scalable automation platform supporting end-to-end workflow orchestration across data engineering, test automation, and integration testing domains
           - Built functional testing of integrations between commercial systems via Apache Airflow DAGs for various end-to-end scenarios
           - Designed reusable modules and packages enabling rapid development and consistency across automation pipelines
           - Owned underlying Apache Airflow infrastructure maintenance and optimization
-      - text: Completed internal AI Engineering program developing practical AI implementation skills across multiple domains
-        details:
-          - Built retrieval-augmented generation (RAG) systems using embedding models with semantic, lexical, and hybrid search approaches
-          - Implemented vision models and OCR extraction pipelines for document processing
-          - Developed comprehensive evaluation frameworks for assessing AI model performance and quality
-      - text: Transitioned to client-facing engagements applying AI techniques to drive business insights and marketing strategy
-        details:
-          - Analyzed customer sentiment from social media platforms to identify marketing opportunities
-          - Delivered actionable insights enabling data-driven marketing decisions
-      - text: Built and optimized CI/CD pipelines for continuous deployment of platform updates, ensuring reliable and repeatable delivery
-      - text: Incorporated AI components into workflow automation to enhance testing validation and data quality processes
-        details:
+          - Built and optimized CI/CD pipelines for continuous deployment of platform updates, ensuring reliable and repeatable delivery
+          - Provided architectural guidance and enforced platform standards across the codebase through PR reviews and mentorship
+          - Translated high-level client objectives into technical roadmaps and priorities, managed backlog, and coordinated cross-functional delivery
           - Normalized customer ordering data and ETL into data warehouse
           - Constructed and deployed system load testing scenarios
-      - text: Provided architectural guidance and enforced platform standards across the codebase through PR reviews and mentorship
-      - text: Translated high-level client objectives into technical roadmaps and priorities, managed backlog, and coordinated cross-functional delivery
+      - text: Completed AI Engineering program and applied generative AI techniques across platform automation and client engagements
+        details:
+          - Built retrieval-augmented generation (RAG) systems using embedding models with semantic, lexical, and hybrid search approaches
+          - Utilized vision models and built OCR extraction pipelines for automated document processing
+          - Integrated AI components into workflow automation to enhance testing validation and data quality processes
+      - text: Building AI-powered media analytics application to drive business insights and marketing strategy
+        details:
+          - Developing sentiment analysis pipelines to evaluate customer perception across traditional and social media platforms
+          - Applying clustering techniques to segment and identify patterns in media coverage and audience engagement
+          - Delivering actionable insights enabling data-driven marketing decisions
 
   - company: ScienceLogic
     url: https://sciencelogic.com/
@@ -121,59 +120,31 @@ experience:
 
 skills:
   languages:
-    - Python
-    - Go
-    - C
-    - C++
+    Python: 100
+    Go: 50
+    C: 75
+    C++: 75
   platforms_tools:
-    - Docker
-    - Kubernetes
-    - Ansible
-    - Terraform
-    - AWS
-    - GitHub Workflows
-    - Apache Airflow
-    - OpenTelemetry
-    - Flask
-    - Git
-    - Linux
-    - Helm
+    Docker: 90
+    Kubernetes: 75
+    Ansible: 70
+    Terraform: 70
+    AWS: 75
+    GitHub Workflows: null
+    Apache Airflow: 100
+    OpenTelemetry: null
+    LangChain: null
+    Flask: null
+    Git: 80
+    Linux: 80
+    Helm: null
   data_stores:
-    - MariaDB
-    - MySQL
-    - Redis
-    - Kafka
-    - Cassandra/ScyllaDB
-    - Clickhouse
-
-skills_proficiency:
-  # Languages
-  Python: 100
-  Go: 50
-  C: 75
-  "C++": 75
-
-  # Platforms/Tools
-  Docker: 90
-  Kubernetes: 75
-  Ansible: 70
-  Terraform: 70
-  AWS: 75
-  "GitHub Workflows": null
-  "Apache Airflow": 100
-  OpenTelemetry: null
-  Flask: null
-  Git: 80
-  Linux: 80
-  Helm: null
-
-  # Data Stores
-  MariaDB: 80
-  MySQL: 80
-  Redis: 75
-  Kafka: 70
-  "Cassandra/ScyllaDB": null
-  Clickhouse: null
+    MariaDB: 80
+    MySQL: 80
+    Redis: 75
+    Kafka: 70
+    Cassandra/ScyllaDB: null
+    Clickhouse: null
 
 education:
   - institution: Virginia Tech
