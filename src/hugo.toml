@@ -25,7 +25,7 @@ text = ''
 
 [params.homeInfoParams]
 Title = 'Fred Thomsen'
-Content = 'Developer/Grappler/Metalhead/Swede/All-Around Nerd'
+Content = 'Engineer/Grappler/Metalhead/Swede/All-Around Nerd'
 
 [[params.socialIcons]]
 name = 'email'
