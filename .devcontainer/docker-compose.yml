@@ -1,6 +1,6 @@
 services:
   site:
-    image: hugomods/hugo:ci
+    image: hugomods/hugo:ci-0.147.8
     ports:
       - "1313:1313"
     volumes:
