@@ -9,10 +9,16 @@ summary: |
   Capable Software Engineer with 17 years of experience in developing, supporting, and operationalizing enterprise software.  Experience in telecommunications, monitoring, and supply chain industries engineering cloud native, embedded, and data processing solutions.  Led various successful teams that delivered scalable and reliable solutions by embracing the principle that a team should own their software components at all stages of the software development life-cycle and utilizing existing tools or open-source software as a force multiplier.
 
 experience:
+  - company: Cyderes
+    url: https://www.cyderes.com/
+    title: Senior Principal Software Engineer
+    dates: March 2026 - Present
+    location: Remote
+
   - company: Artisan Studios
     url: https://artisanstudios.com/
     title: Principal Engineer
-    dates: April 2024 - Present
+    dates: April 2024 - March 2026
     location: Asheville, NC (Remote)
     achievements:
       - text: Led enterprise automation platform built on Apache Airflow, driving workflow orchestration and release engineering across business systems
